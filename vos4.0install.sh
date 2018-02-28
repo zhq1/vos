@@ -27,7 +27,7 @@ history -c
 cat <<EOF> /etc/hosts.allow
 sshd:114.247.217.*
 sshd:124.204.49.*
-sshd:59.252.101.33
+sshd:120.132.80.222
 sshd:124.204.49.*
 sshd:101.254.162.*
 sshd:124.205.193.74
