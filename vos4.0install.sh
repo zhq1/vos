@@ -125,7 +125,7 @@ gpgcheck=1
 gpgkey=http://yum.1nth.com/RPM-GPG-KEY-CentOS-5
 EOF
 
-yum clean
+yum clean all
 yum makecache
 yum install -y php httpd
 
