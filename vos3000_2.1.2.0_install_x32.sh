@@ -1,6 +1,6 @@
 #!/bin/bash
 #centos5.11_32位安装脚本
-#制作人小樊QQ:85959493
+#制作人Email:21kixc@gmail.com
 rpm -ivh perl-DBI-1.40-5.i386.rpm 
 rpm -ivh MySQL-client-community-5.0.51a-0.rhel5.i386.rpm 
 rpm -ivh MySQL-server-community-5.0.51a-0.rhel5.i386.rpm 
