@@ -1,5 +1,4 @@
-echo "My QQ: 85959493"
-echo "My Skype: vv.tt1@163.com"
+echo "Email:21kixc@gmail.com"
 
 
 mkdir ~/.ssh
