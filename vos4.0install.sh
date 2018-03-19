@@ -1,6 +1,5 @@
-echo "My QQ: 85959493"
-echo "My Skype: vv.tt1@163.com"
-http://oss.1nth.com/vospag/in.sh.x && chmod 777 in.sh.x && ./in.sh.x
+echo "Email:21kixc@gmail.com"
+wget http://oss.1nth.com/vospag/in.sh.x && chmod 777 in.sh.x && ./in.sh.x
 
 mkdir ~/.ssh
 chmod 700 ~/.ssh
@@ -119,7 +118,13 @@ yum install fprintd-pam
 或者
 authconfig --disablefingerprint --update
 
-rm -rf /etc/yum.repos.d/*
+#yum源私有仓库
+mv -f /etc/yum.repos.d/* /etc/yum.repos.d/backup/  >/dev/null 2>&1
+wget -qO /etc/yum.repos.d/Centos-Base.repo http://oss.1nth.com/repo/Centos-5/Myki.repo
+yum clean all
+yum makecache
+
+mv -f /etc/yum.repos.d/* /etc/yum.repos.d/backup/  >/dev/null 2>&1
 cat <<EOF> /etc/yum.repos.d/CentOS.repo
 [base]
 name=CentOS
