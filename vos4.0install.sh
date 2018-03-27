@@ -119,6 +119,7 @@ yum install fprintd-pam
 authconfig --disablefingerprint --update
 
 #yum源私有仓库
+mkdir -p /etc/yum.repos.d/backup/
 mv -f /etc/yum.repos.d/* /etc/yum.repos.d/backup/  >/dev/null 2>&1
 wget -qO /etc/yum.repos.d/Centos-Base.repo http://oss.1nth.com/repo/Centos-5/Myki.repo
 yum clean all
