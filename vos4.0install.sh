@@ -431,7 +431,11 @@ pause
 
 防止vos超频功能
 
-
+#备份mysql
+mysqladmin -uroot -p password xiaofan@1
+set password for root@localhost = password('');
+flush privileges;
+/usr/bin/mysqldump -uroot -pxiaofan@1 vos3000  --skip-lock-tables > /backup/db/"date +"%y-%m-%d"/"vos3000"_"date +"%y-%m-%d".sql
 
 
 
