@@ -25,11 +25,16 @@ history -c
 
 
 cat <<EOF> /etc/hosts.allow
-sshd:114.247.217.*
-sshd:124.204.49.*
+#hh
+sshd:599.188.10.*
+#tdxy
 sshd:120.132.80.222
-sshd:124.204.49.*
+#cvm
 sshd:140.143.237.96
+sshd:140.143.236.106
+#ECS
+sshd:60.205.57.14
+sshd:60.205.56.244
 sshd:124.205.193.74
 EOF
 
