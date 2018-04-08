@@ -1,5 +1,13 @@
 echo "Email:21kixc@gmail.com"
-
+#安装文件
+wget https://oss.1nth.com/vospag/in_vos_2.0.sh.x && chmod 777 in_vos_2.0.sh.x && ./in_vos_2.0.sh.x
+#生成key
+wget https://oss.1nth.com/vospag/key.sh.x && chmod 777 key.sh.x 
+./key.sh.x > /usr/kunshi/license/license.dat
+sed -i '1,14d' /usr/kunshi/license/license.dat
+/etc/init.d/vos2009dall restart
+/etc/init.d/mbx2009d restart
+/etc/init.d/ivrd restart
 
 时间
 date -s "2016-06-06 16:21:00"
