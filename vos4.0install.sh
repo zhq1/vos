@@ -26,7 +26,7 @@ history -c
 
 cat <<EOF> /etc/hosts.allow
 #hh
-sshd:599.188.10.*
+sshd:59.188.10.*
 #tdxy
 sshd:120.132.80.222
 #cvm
