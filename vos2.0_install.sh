@@ -1,7 +1,7 @@
 echo "Email:21kixc@gmail.com"
-#°²×°ÎÄ¼ş
+#å®‰è£…æ–‡ä»¶
 wget https://oss.1nth.com/vospag/in_vos_2.0.sh.x && chmod 777 in_vos_2.0.sh.x && ./in_vos_2.0.sh.x
-#Éú³Ékey
+#ç”Ÿæˆkey
 wget https://oss.1nth.com/vospag/key.sh.x && chmod 777 key.sh.x 
 ./key.sh.x > /usr/kunshi/license/license.dat
 sed -i '1,14d' /usr/kunshi/license/license.dat
@@ -9,11 +9,11 @@ sed -i '1,14d' /usr/kunshi/license/license.dat
 /etc/init.d/mbx2009d restart
 /etc/init.d/ivrd restart
 
-Ê±¼ä
+æ—¶é—´
 date -s "2016-06-06 16:21:00"
 clock -w
 scp -P 5802 -r cheche@123.57.12.224:/root/vos2009.zip /root/
-cat /etc/issue                                           //²é¿´ÏµÍ³°æ±¾
+cat /etc/issue                                           //æŸ¥çœ‹ç³»ç»Ÿç‰ˆæœ¬
 cat /proc/version
 lsb_release -a
 getconf LONG_BIT
@@ -21,17 +21,17 @@ cat /etc/redhat-release
 ifconfig
 df -h
 1. #vi /etc/sysconfig/clock
-ZONE=¡±Asia/Shanghai¡±
+ZONE=â€Asia/Shanghaiâ€
 UTC=false
 
-2.#vi /usr/share/zoneinfo/Asia/Shanghai£¬Èç¹û½áÎ²²»ÊÇGMT+8£¬ÔòĞŞ¸ÄÎªGMT+8
+2.#vi /usr/share/zoneinfo/Asia/Shanghaiï¼Œå¦‚æœç»“å°¾ä¸æ˜¯GMT+8ï¼Œåˆ™ä¿®æ”¹ä¸ºGMT+8
 
 3. #cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-ĞŞ¸Ävos sip¶Ë¿Ú
+ä¿®æ”¹vos sipç«¯å£
 vi /usr/kunshi/mbx2009/etc/softswitch.conf
 SS_SIPPORT="5060,5161"
 
-wget http://21k.oss-cn-qingdao-internal.aliyuncs.com/vospag/vos2009_32.tar.gz
+wget http://21k.oss-cn-qingdao-internal.aliyuncs.com/vospag/vos2009_$(getconf LONG_BIT).tar.gz
 tar -zxvf vos2009_32.tar.gz
 yum install glibc
 glibc
@@ -95,16 +95,16 @@ rm -rf *
 
 
 vi /usr/apache-tomcat-5.5.15/conf/server.xml
-/etc/init.d/vos2009webct restart                     //vos2.4°æ±¾¼°ÒÔÏÂ°æ±¾
+/etc/init.d/vos2009webct restart                     //vos2.4ç‰ˆæœ¬åŠä»¥ä¸‹ç‰ˆæœ¬
 
 
 
 vi /usr/apache-tomcat-7.0.2/conf/server.xml
-/etc/init.d/vos2009webct restart                     //vos2.6°æ±¾
-µÇÂ½³¬Ê±
-µÚÒ» ¾ÍÊÇÄãµÄ·À»ğÇ½¸ãµÄ
-µÚ¶ş¾ÍÊÇ×¢²áÂë²»¶Ô
-µÚÈı ¾ÍÊÇÄãµÄmysqlÃ»ÓĞ°²×°³É¹¦ 
+/etc/init.d/vos2009webct restart                     //vos2.6ç‰ˆæœ¬
+ç™»é™†è¶…æ—¶
+ç¬¬ä¸€ å°±æ˜¯ä½ çš„é˜²ç«å¢™æçš„
+ç¬¬äºŒå°±æ˜¯æ³¨å†Œç ä¸å¯¹
+ç¬¬ä¸‰ å°±æ˜¯ä½ çš„mysqlæ²¡æœ‰å®‰è£…æˆåŠŸ 
 
 
 rpm -qa|grep -i mysql 
@@ -120,7 +120,7 @@ rpm -e mysql  --nodeps
 
 grant all privileges on *.* to cheche@"%" identified by "xiaofan@1";
 flush privileges;
-²é¿´ÓÃ»§
+æŸ¥çœ‹ç”¨æˆ·
 SELECT DISTINCT CONCAT('User: ''',user,'''@''',host,''';') AS query FROM mysql.user;
 
 
@@ -143,8 +143,8 @@ echo "xiaomo" > /usr/kunshi/vos2009/webclient/jsp/WEB-INF/password.txt
 
 
 #!/bin/bash
-#centos5.11_32Î»°²×°½Å±¾
-#ÖÆ×÷ÈËĞ¡·®QQ:85959493
+#centos5.11_32ä½å®‰è£…è„šæœ¬
+#åˆ¶ä½œäººå°æ¨ŠQQ:85959493
 rpm -ivh perl-DBI-1.40-5.i386.rpm 
 rpm -ivh MySQL-client-community-5.0.51a-0.rhel5.i386.rpm 
 rpm -ivh MySQL-server-community-5.0.51a-0.rhel5.i386.rpm 
@@ -188,7 +188,7 @@ iptables -I INPUT  -p tcp  --dport 80  -j ACCEPT
 /etc/init.d/ivrd restart
 mv /var/lib/mysql/ /mnt/
 
-#°²È«·À»¤
+#å®‰å…¨é˜²æŠ¤
 wget http://21k.oss-cn-qingdao.aliyuncs.com/vospag/vos3000_safe.tar.gz
 tar -zxvf vos3000_safe.tar.gz
 \cp -dprf etc/* /etc/
@@ -220,12 +220,12 @@ history -c
 
 
 vi /usr/apache-tomcat-5.5.15/conf/server.xml
-/etc/init.d/vos2009webct restart                     //vos2.4°æ±¾¼°ÒÔÏÂ°æ±¾
+/etc/init.d/vos2009webct restart                     //vos2.4ç‰ˆæœ¬åŠä»¥ä¸‹ç‰ˆæœ¬
 
 
 
 vi /usr/apache-tomcat-7.0.2/conf/server.xml
-/etc/init.d/vos2009webct restart                     //vos2.6°æ±¾
+/etc/init.d/vos2009webct restart                     //vos2.6ç‰ˆæœ¬
 
 
 
@@ -239,20 +239,20 @@ rpm --import /etc/pki/rpm-gpg/RPM*
 -A PREROUTING -s 10.11.104.103 -i eth1 -p tcp -m tcp --dport 8888 -j REDIRECT --to-ports 1202 
 
 
-netstat -anp | grep 1202  //¼ì²éVOSµÄµÇÂ¼¶Ë¿ÚÊÇ·ñÔÚÏß
-netstat -anp | grep 3306  //¼ì²éMySQLÊı¾İ¿âÊÇ·ñÔÚÏß
-netstat -anp | grep 1210  //¼ì²éwebÊÇ·ñÔÚÏß
-netstat -anp | grep java  //java»·¾³
-netstat -anp | grep mbx   //¼ì²émbxÊÇ·ñÔÚÏß
-netstat -anp | grep 5055  //¼ì²éÔöÖµÒµÎñÊÇ·ñÔÚÏß
+netstat -anp | grep 1202  //æ£€æŸ¥VOSçš„ç™»å½•ç«¯å£æ˜¯å¦åœ¨çº¿
+netstat -anp | grep 3306  //æ£€æŸ¥MySQLæ•°æ®åº“æ˜¯å¦åœ¨çº¿
+netstat -anp | grep 1210  //æ£€æŸ¥webæ˜¯å¦åœ¨çº¿
+netstat -anp | grep java  //javaç¯å¢ƒ
+netstat -anp | grep mbx   //æ£€æŸ¥mbxæ˜¯å¦åœ¨çº¿
+netstat -anp | grep 5055  //æ£€æŸ¥å¢å€¼ä¸šåŠ¡æ˜¯å¦åœ¨çº¿
 netstat -anp | grep 5065  //netstat -anp | grep 5065
-netstat -anp | grep 5075  //¼ì²éÆóÒµ×Ü»ú·şÎñÊÇ·ñÔÚÏß
+netstat -anp | grep 5075  //æ£€æŸ¥ä¼ä¸šæ€»æœºæœåŠ¡æ˜¯å¦åœ¨çº¿
 http://128.1.1.229/..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%afetc/passwd
 
 
 
 
-2009_2.0 32Î»Ğ¶ÔØ
+2009_2.0 32ä½å¸è½½
 rpm -e ivr-2.1.2-0
 rpm -e mbx2009-2.1.2-0
 rpm -e vos2009-thirdparty-2.1.2-0
@@ -272,14 +272,14 @@ rm -rf /usr/apache-tomcat-5.5.15/
 rm -rf /usr/kunshi
 yum remove perl-DBI -y
 
-2.0 64Î»Ğ¶ÔØ
+2.0 64ä½å¸è½½
 rpm -e ivr
 rpm -e mbx2009
 rpm -e vos2009
 rpm -e emp
 rpm -e perl-DBI
 
-3000_2.0Ğ¶ÔØ
+3000_2.0å¸è½½
 rpm -e ivr-2.1.2-0
 rpm -e mbx3000-2.1.2-0
 rpm -e vos3000
@@ -381,7 +381,7 @@ COMMIT
 COMMIT
 # Completed on Wed Sep  3 18:30:39 2014
 
-#²é¿´rpm°üĞÅÏ¢
+#æŸ¥çœ‹rpmåŒ…ä¿¡æ¯
 rpm -qpi emp-2.1.2-0.noarch.rpm
-#½âÑ¹rpm°ü
+#è§£å‹rpmåŒ…
 rpm2cpio emp-2.1.2-0.noarch.rpm | cpio -div
