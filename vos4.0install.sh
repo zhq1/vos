@@ -236,6 +236,10 @@ chmod 770 /etc/init.d/vos3000d
 chown kunshi:kunshi /etc/init.d/vos3000d
 rm -rf vos3000d vos3000webct libcap.so vos2.4pag.tar.gz
 history -c
+
+yum install -y denyhosts httpd php
+service denyhosts restart
+chkconfig denyhosts on
 wget http://oss.1nth.com/vospag/vossafe.bin
 sh vossafe.bin
 
