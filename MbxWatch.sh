@@ -12,3 +12,4 @@ fi
 /etc/init.d/ivrdiald start >/dev/null
 /etc/init.d/callserviced start >/dev/null
 echo `date +%Y-%m-%d`  `date +%H:%M:%S` >> /home/kunshi/logm
+#1 */1 * * * /opt/MbxWatch.sh
