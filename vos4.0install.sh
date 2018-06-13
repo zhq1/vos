@@ -219,6 +219,8 @@ cd ..
 chmod 777 vos30002140.bin
 ./vos30002140.bin
 ifconfig
+
+
 mkdir /home/kunshi/license
 mv *_license.dat /home/kunshi/license/license.dat
 chmod 777 -R /home/kunshi/license/
@@ -243,7 +245,7 @@ service denyhosts restart
 chkconfig denyhosts on
 wget http://oss.1nth.com/vospag/vossafe.bin
 sh vossafe.bin
-wget https://oss.1nth.com/MbxWatch.sh
+wget -P /opt https://oss.1nth.com/MbxWatch.sh --no-check-certificate
 chmod 777 /opt/MbxWatch.sh
 echo -e "1 */1 * * * /opt/MbxWatch.sh" >> /var/spool/cron/root
 
