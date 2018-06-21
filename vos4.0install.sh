@@ -125,6 +125,7 @@ yum install fprintd-pam
 authconfig --disablefingerprint --update
 
 #yum源私有仓库
+#centos5.x
 mkdir -p /etc/yum.repos.d/backup/
 mv -f /etc/yum.repos.d/* /etc/yum.repos.d/backup/  >/dev/null 2>&1
 wget -qO /etc/yum.repos.d/Centos-Base.repo http://oss.1nth.com/repo/Centos-5/Myki.repo
@@ -140,6 +141,10 @@ baseurl=http://yum.1nth.com/
 gpgcheck=1
 gpgkey=http://yum.1nth.com/RPM-GPG-KEY-CentOS-5
 EOF
+
+#centos6.x
+wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo
+wget-O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-6.repo
 
 yum clean all
 yum makecache
