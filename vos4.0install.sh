@@ -136,10 +136,18 @@ mv -f /etc/yum.repos.d/* /etc/yum.repos.d/backup/  >/dev/null 2>&1
 cat <<EOF> /etc/yum.repos.d/CentOS.repo
 [base]
 name=CentOS
-name=CentOS-$releasever - Base - Myki
-baseurl=http://yum.1nth.com/
+name=CentOS- - Base - Myki
+baseurl=http://yum.1nth.com/base/$basearch/
 gpgcheck=1
-gpgkey=http://yum.1nth.com/RPM-GPG-KEY-CentOS-5
+gpgkey=http://yum.1nth.com/base/$basearch/RPM-GPG-KEY-CentOS-5
+
+[epel]
+name=epel-Myki
+baseurl=http://epel.1nth.com/epel/$releasever/$basearch/
+failovermethod=priority
+enabled=1
+gpgcheck=1
+gpgkey=http://epel.1nth.com/epel/RPM-GPG-KEY-EPEL-5
 EOF
 
 #centos6.x
@@ -312,15 +320,6 @@ vi /var/spool/cron/root
 #!/bin/bash
 wget http://21k.oss-cn-qingdao.aliyuncs.com/vospag/vossafe.tar.gz
 tar -zxvf vossafe.tar.gz
-rm -rf /etc/yum.repos.d/*
-cat <<EOF> /etc/yum.repos.d/CentOS.repo
-[base]
-name=CentOS
-name=CentOS-$releasever - Base - Myki
-baseurl=http://yum.21k.bid/
-gpgcheck=1
-gpgkey=http://yum.21k.bid/RPM-GPG-KEY-CentOS-5
-EOF
 
 yum clean all
 yum makecache
