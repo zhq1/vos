@@ -1,5 +1,5 @@
 #系统安装完之后获取特征码信息
-http://120.55.12.19/cloud-app/uplicense.php
-cc.1nth.com
+http://ip/cloud-app/uplicense.php
+curl http://ip/cc
 superadmin
 cxstadmin
