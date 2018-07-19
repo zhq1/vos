@@ -17,3 +17,5 @@ cd /var/lib/mysql/vos3000/
 vosdb=`ls |ls /var/lib/mysql/vos3000/ |grep -v e_cdr`
 mkdir -p /root/backup
 cp $vosdb /root/backup/
+cd /root
+tar -zxvf vos3000.tar.gz backup/
