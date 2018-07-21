@@ -11,11 +11,9 @@
 /etc/init.d/callserviced stop
 /etc/init.d/httpd stop
 /etc/init.d/mysql stop
-#进入到vos数据库
-cd /var/lib/mysql/vos3000/
 
-vosdb=`ls |ls /var/lib/mysql/vos3000/ |grep -v e_cdr`
-mkdir -p /root/backup
-cp -dprf $vosdb /root/backup/
-cd /root
-tar -zcvf vos3000.tar.gz backup/
+tar -zxvf vos3000.tar.gz backup/
+rm -rf /var/lib/mysql/vos3000/*
+cp -dprf backup/* /var/lib/mysql/vos3000/
+rpm -e vos3000
+rpm -Uvh vos3000
