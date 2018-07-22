@@ -15,5 +15,6 @@
 tar -zxvf vos3000.tar.gz backup/
 rm -rf /var/lib/mysql/vos3000/*
 cp -dprf backup/* /var/lib/mysql/vos3000/
-rpm -e vos3000
-rpm -Uvh vos3000
+rpm -e vos3000-2.1.4-0
+/etc/init.d/mysql stop
+rpm -Uvh vos3000-2.1.4-0.i586.rpm
