@@ -12,9 +12,10 @@
 /etc/init.d/httpd stop
 /etc/init.d/mysql stop
 
-tar -zxvf vos3000.tar.gz backup/
+tar -zxvf vos3000.tar.gz 
 rm -rf /var/lib/mysql/vos3000/*
 cp -dprf backup/* /var/lib/mysql/vos3000/
 rpm -e vos3000-2.1.4-0
-/etc/init.d/mysql stop
+/etc/init.d/mysql restart
+wget https://1nth.oss-cn-beijing.aliyuncs.com/vos3000-2.1.4-0.i586.rpm --no-check-certificate
 rpm -Uvh vos3000-2.1.4-0.i586.rpm
