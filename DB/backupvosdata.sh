@@ -16,7 +16,8 @@
 cd /var/lib/mysql/vos3000/
 
 vosdb=`ls |ls /var/lib/mysql/vos3000/ |grep -v e_cdr`
+getip=`curl getip.1nth.com:56667`
 mkdir -p /root/backup
 cp -dprf $vosdb /root/backup/
 cd /root
-tar -zcvf vos3000.tar.gz backup/
+tar -zcvf vos3000_$getip.tar.gz backup/
