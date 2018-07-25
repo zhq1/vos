@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 #by Myki
+#wget https://raw.githubusercontent.com/21ki/vos/master/DB/backupvosdata.sh --no-check-certificate && bash backupvosdata.sh
 #只备份数据不备份话单
 #停止vos程序
 /etc/init.d/vos3000d stop
