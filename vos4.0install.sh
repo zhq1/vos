@@ -278,25 +278,28 @@ tee /etc/sysconfig/iptables <<-'EOF'
 :INPUT DROP [5:200]
 :FORWARD ACCEPT [0:0]
 :OUTPUT ACCEPT [4:328]
+-A INPUT -s 115.29.234.201 -j DROP
+-A INPUT -s 222.95.0.0/255.255.0.0 -j DROP
+-A INPUT -s 222.45.0.0/255.255.0.0 -j DROP
+-A INPUT -s 58.212.0.0/255.255.0.0 -j DROP
 -A INPUT -i lo -j ACCEPT
 -A INPUT -p tcp -m tcp --dport 88 -j ACCEPT
 -A INPUT -p tcp -m tcp --dport 22 -j ACCEPT
--A INPUT -p tcp -m tcp --dport 8080 -j ACCEPT
--A INPUT -p tcp -m tcp --dport 1719 -j ACCEPT
--A INPUT -p tcp -m tcp --dport 1720 -j ACCEPT
--A INPUT -p tcp -m tcp --dport 3719 -j ACCEPT
--A INPUT -p tcp -m tcp --dport 3720 -j ACCEPT
+-A INPUT -p tcp -m tcp --dport 2080 -j ACCEPT
 -A INPUT -p tcp -m tcp --dport 10000:49999 -j ACCEPT
--A INPUT -p udp -m udp --dport 5060 -j ACCEPT
--A INPUT -p udp -m udp --dport 5070 -j ACCEPT
 -A INPUT -p udp -m udp --dport 10000:49999 -j ACCEPT
 #-A INPUT -p icmp --icmp-type any -j DROP
 -A INPUT -p icmp -m icmp --icmp-type 0 -j ACCEPT
 -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 COMMIT
 # Completed on Fri Jul 11 10:18:06 2017
-# 小樊整理防火墙联系QQ85959493
+# 小樊整理防火墙联系21kixc@gmail.com
 EOF
+
+#修改sip端口
+sed -i 's/SS_SIP_PORT="5060,6060"/SS_SIP_PORT="2080,6060"/g' /home/kunshi/mbx3000/etc/softswitch.conf
+#修改查费端口
+sed -i 's/port="8080"/port="8888"/g' /home/kunshiweb/base/apache-tomcat/conf/server.xml 
 
 /sbin/iptables  -I INPUT -s 183.15.177.34 -j ACCEPT
 
