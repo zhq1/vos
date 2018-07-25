@@ -288,9 +288,9 @@ tee /etc/sysconfig/iptables <<-'EOF'
 -A INPUT -p tcp -m tcp --dport 2080 -j ACCEPT
 -A INPUT -p tcp -m tcp --dport 10000:49999 -j ACCEPT
 -A INPUT -p udp -m udp --dport 10000:49999 -j ACCEPT
-#-A INPUT -p icmp --icmp-type any -j DROP
+-A INPUT -p icmp --icmp-type any -j DROP
 -A INPUT -p icmp -m icmp --icmp-type 0 -j ACCEPT
--A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+#-A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 COMMIT
 # Completed on Fri Jul 11 10:18:06 2017
 # 小樊整理防火墙联系21kixc@gmail.com
