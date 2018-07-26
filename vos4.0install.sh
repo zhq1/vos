@@ -319,7 +319,7 @@ tee /etc/sysconfig/iptables <<-'EOF'
 -A INPUT -i lo -j ACCEPT
 -A INPUT -p tcp -m tcp --dport 88 -j ACCEPT
 -A INPUT -p tcp -m tcp --dport 22 -j ACCEPT
--A INPUT -p tcp -m tcp --dport 2080 -j ACCEPT
+-A INPUT -p udp -m udp --dport 2080 -j ACCEPT
 -A INPUT -p tcp -m tcp --dport 10000:49999 -j ACCEPT
 -A INPUT -p udp -m udp --dport 10000:49999 -j ACCEPT
 -A INPUT -p icmp --icmp-type any -j DROP
