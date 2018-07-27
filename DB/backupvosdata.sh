@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 #by Myki
 #wget https://21k.oss-cn-qingdao.aliyuncs.com/vos/backupvosdata.sh --no-check-certificate && bash backupvosdata.sh
+#同一个服务器增量备份
+#nohup rsync -av /var/lib/mysql/vos3000/ /data/ &
 #只备份数据不备份话单
 #停止vos程序
 /etc/init.d/vos3000d stop
