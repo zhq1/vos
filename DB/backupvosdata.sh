@@ -14,10 +14,12 @@
 /etc/init.d/callserviced stop
 /etc/init.d/httpd stop
 /etc/init.d/mysql stop
+#vosdbpath=/data/mysql/vos3000/
+vosdbpath=/var/lib/mysql/vos3000/
 #进入到vos数据库
-cd /var/lib/mysql/vos3000/
+cd $vosdbpath
 
-vosdb=`ls |ls /var/lib/mysql/vos3000/ |grep -v e_cdr`
+vosdb=`ls |ls $vosdbpath/ |grep -v e_cdr`
 getip=`curl getip.1nth.com:56667`
 mkdir -p /root/backup
 cp -dprf $vosdb /root/backup/
