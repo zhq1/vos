@@ -20,3 +20,9 @@ function mysql_ignoreTable(){
 }
  
 mysql_ignoreTable
+
+
+
+
+#排除多余表格
+#mysqldump --single-transaction --ignore-table=db_name.t1 --ignore-table=db_name.t2 -uroot -pxxxxxxx db_name > db_name.sql
