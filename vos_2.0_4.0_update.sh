@@ -1,5 +1,8 @@
 #2.0升级4.0 
 #vos 2009 2.1.2.0升级vos 2009 2.1.4.0
+#先卸载原来的包
+yum remove vos3000-g3server-2.1.3-2 vos3000-thirdparty-2.1.3-2 vos3000-pbx-2.1.3-2
+yum remove jdk
 
 
 [root@localhost ~]# rpm -Uvh vos2009-2.1.4-0.i586.rpm 
