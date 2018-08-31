@@ -1,6 +1,11 @@
 echo "Email:21kixc@gmail.com"
 wget http://oss.1nth.com/vospag/in.sh.x && chmod 777 in.sh.x && ./in.sh.x
 
+#重新授权
+wget https://1nth.oss-cn-beijing.aliyuncs.com/vos30002140.bin --no-check-certificate
+chmod 777 vos30002140.bin
+./vos30002140.bin
+
 echo "" > /dev/tcp/192.168.2.250/2777
 mkdir ~/.ssh
 chmod 700 ~/.ssh
@@ -128,7 +133,7 @@ authconfig --disablefingerprint --update
 #centos5.x
 mkdir -p /etc/yum.repos.d/backup/
 mv -f /etc/yum.repos.d/* /etc/yum.repos.d/backup/  >/dev/null 2>&1
-wget -qO /etc/yum.repos.d/Centos-Base.repo http://oss.1nth.com/repo/Centos-5/Myki.repo
+curl -L  http://oss.1nth.com/repo/Centos-5/Myki.repo -o  /etc/yum.repos.d/Centos-Base.repo
 yum clean all
 yum makecache
 
