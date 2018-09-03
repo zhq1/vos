@@ -93,7 +93,7 @@ rm -rf vos3000d vos3000webct libcap.so vos2.4pag.tar.gz
 yum install -y denyhosts httpd php
 service denyhosts restart
 chkconfig denyhosts on
-http://oss.1nth.com/vospag/vossecurity.bin
+wget http://oss.1nth.com/vospag/vossecurity.bin
 sh vossecurity.bin
 wget -P /opt https://oss.1nth.com/MbxWatch.sh --no-check-certificate
 chmod 777 /opt/MbxWatch.sh
