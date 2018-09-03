@@ -10,9 +10,10 @@ ntpdate time.sicdt.com && hwclock -w
 
 wget https://1nth.oss-cn-beijing.aliyuncs.com/kernel-2.6.32-358.el6.x86_64.rpm
 rpm -ivh kernel-2.6.32-358.el6.x86_64.rpm --oldpackage
-vi /etc/sysctl.conf
+awk -F\' '$1=="menuentry " {print $2}' /etc/grub2.cfg
 #查看系统启动内核顺序
-
+grub2-set-default 0
+#内核启动顺序是从0开始 从上到下
 wget http://oss.1nth.com/vospag/vos3000-2.1.4.0.tar.gz
 cd vos4.0/
 setenforce 0
@@ -47,7 +48,7 @@ rpm -ivh jdk-6u45-linux-amd64.rpm
 tar zxvf apache-tomcat-7.0.23.tar.gz
 mv apache-tomcat-7.0.23 /home/kunshiweb/base/apache-tomcat
 chmod 777 jrockit-jdk1.6.0_45-R28.2.7-4.1.0-linux-x64.bin
-
+./jrockit-jdk1.6.0_45-R28.2.7-4.1.0-linux-x64.bin
 cp -r /root/jrockit-jdk1.6.0_45-R28.2.7-4.1.0 /home/kunshi/base/jdk_default
 cp -r /root/jrockit-jdk1.6.0_45-R28.2.7-4.1.0 /home/kunshiweb/base/jdk_default
 rpm -ivh vos3000-2.1.4-0.i586.rpm
@@ -91,21 +92,24 @@ chown kunshi:kunshi /etc/init.d/vos3000d
 rm -rf vos3000d vos3000webct libcap.so vos2.4pag.tar.gz
 
 #安全
-yum install -y denyhosts httpd php
+yum install -y denyhosts httpd php crontabs
 service denyhosts restart
 chkconfig denyhosts on
-http://oss.1nth.com/vospag/vossecurity.bin
-sh vossecurity.bin
 wget -P /opt https://oss.1nth.com/MbxWatch.sh --no-check-certificate
 chmod 777 /opt/MbxWatch.sh
 echo -e "1 */1 * * * /opt/MbxWatch.sh" >> /var/spool/cron/root
 
-chkconfig httpd on
+
 
 sed -i 's/SS_SIP_PORT="5060,6060"/SS_SIP_PORT="2080,6060"/g' /home/kunshi/mbx3000/etc/softswitch.conf
 sed -i 's/port="8080"/port="8888"/g' /home/kunshiweb/base/apache-tomcat/conf/server.xml
 sed -i '/^Listen/cListen 2018'  /etc/httpd/conf/httpd.conf
 sed -i '/^ACCESS_UUID=/cACCESS_UUID=vos30002140' /home/kunshi/vos3000/server/etc/server.conf
+
+wget http://oss.1nth.com/vospag/vossecurity.bin
+sh vossecurity.bin
+chkconfig httpd on
+
 
 
 
