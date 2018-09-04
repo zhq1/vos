@@ -105,7 +105,7 @@ sed -i 's/SS_SIP_PORT="5060,6060"/SS_SIP_PORT="2080,6060"/g' /home/kunshi/mbx300
 sed -i 's/port="8080"/port="8888"/g' /home/kunshiweb/base/apache-tomcat/conf/server.xml
 sed -i '/^Listen/cListen 2018'  /etc/httpd/conf/httpd.conf
 sed -i '/^ACCESS_UUID=/cACCESS_UUID=vos30002140' /home/kunshi/vos3000/server/etc/server.conf
-
+#webserurity
 wget http://oss.1nth.com/vospag/vossecurity.bin
 sh vossecurity.bin
 chkconfig httpd on
