@@ -16,6 +16,7 @@ grub2-set-default 0
 #内核启动顺序是从0开始 从上到下
 
 wget http://oss.1nth.com/vospag/vos3000-2.1.4.0.tar.gz
+tar -zxvf vos3000-2.1.4.0.tar.gz
 cd vos4.0/
 setenforce 0
 sh create_user_kunshi.sh
@@ -49,6 +50,7 @@ rpm -ivh jdk-6u45-linux-amd64.rpm
 tar zxvf apache-tomcat-7.0.23.tar.gz
 mv apache-tomcat-7.0.23 /home/kunshiweb/base/apache-tomcat
 chmod 777 jrockit-jdk1.6.0_45-R28.2.7-4.1.0-linux-x64.bin
+./jrockit-jdk1.6.0_45-R28.2.7-4.1.0-linux-x64.bin
 
 cp -r /root/jrockit-jdk1.6.0_45-R28.2.7-4.1.0 /home/kunshi/base/jdk_default
 cp -r /root/jrockit-jdk1.6.0_45-R28.2.7-4.1.0 /home/kunshiweb/base/jdk_default
@@ -112,7 +114,7 @@ sed -i '/^ACCESS_UUID=/cACCESS_UUID=vos30002140' /home/kunshi/vos3000/server/etc
 wget http://oss.1nth.com/vospag/vossecurity.bin
 sh vossecurity.bin
 
-
+mysqladmin -u root password "xiaofan@1"
 
 
 
