@@ -1,7 +1,7 @@
 #centos 6.5 install vos4.0
 
 yum remove -y perl-DBI  jdk  mysql-libs
-yum install -y wget ntpdate glibc.i686 zip unzip epel-release crontabs
+yum install -y wget ntpdate glibc.i686 zip unzip crontabs sudo
 sed -i '/^SELINUX=/cSELINUX=disabled' /etc/selinux/config
 echo  "127.0.0.1 www.linknat.com" >> /etc/hosts
 wget -qO /etc/sysctl.conf https://oss.1nth.com/environment/aliyun-sysctl.conf --no-check-certificate
