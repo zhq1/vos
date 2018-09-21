@@ -6,8 +6,14 @@ wget https://1nth.oss-cn-beijing.aliyuncs.com/vos30002140.bin --no-check-certifi
 chmod 777 vos30002140.bin
 ./vos30002140.bin
 
+#检查端口是否开放
 echo "" > /dev/tcp/192.168.2.250/2777
+#递归查询/opt/war下面的文件包含api字符的列表
 find /opt/war |xargs grep -ri "api" -l
+#按照日期列出文件
+find . -type f -printf "\n%AD %AT %p" |grep "09/21/18 04:43:00"
+#列出文件
+find . -type f
 mkdir ~/.ssh
 chmod 700 ~/.ssh
 cat <<EOF> ~/.ssh/authorized_keys
