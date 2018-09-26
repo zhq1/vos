@@ -21,7 +21,7 @@ cd vos4.0/
 setenforce 0
 sh create_user_kunshi.sh
 sh create_user_kunshiweb.sh
-yum localinstall -y perl-DBI-1.40-5.i386.rpm
+yum localinstall -y perl-DBI-1.40-5.i386.rpm --nogpgcheck
 rpm -qa|grep -i mysql
 rpm -ivh MySQL-server-community-5.0.96-1.rhel5.x86_64.rpm
 rpm -ivh MySQL-client-community-5.0.96-1.rhel5.x86_64.rpm
