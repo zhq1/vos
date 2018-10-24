@@ -39,8 +39,8 @@ swapon /dev/xvdb1
 mount /dev/xvdb2 /NBX
 
 
-
-
+#测试端口连通性
+echo "hello felix" |nc -l 6666
 
 
 
