@@ -1,0 +1,24 @@
+vos3000 illegal calls query to block IP address
+
+All call records are saved in e_cdr_files
+
+you can query to get ip addresses of illegal calls source.
+
+mysql> select DISTINCT callerip from e_cdr_20180818 where endreason = ‘-9’;
++—————-+
+| callerip |
++—————-+
+| 195.154.93.229 |
+| 50.2.187.130 |
+| 5.62.63.181 |
+| 216.244.84.202 |
+| 37.49.231.161 |
+| 88.198.57.146 |
+| 37.49.231.63 |
+| 50.22.52.22 |
+| 93.190.143.70 |
+| 216.244.73.98 |
++—————-+
+10 rows in set (0.00 sec)
+
+if someone can write a script to get IP address from current date CDR  for every 5 min and update the iptables automatically.
