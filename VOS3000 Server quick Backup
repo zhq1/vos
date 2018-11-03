@@ -1,0 +1,19 @@
+VOS3000  Server quick Backup
+
+If you want to take backup of VOS3000 Server without CDR  for emergency .
+
+just take a backup of all tables except CDR .
+
+Below are the example:-
+
+
+
+mysqldump -u root  vos3000db r_suite_privileges r_feerategroup_privileges r_customer_privileges r_customer_e164ranges e_userlogin e_user e_syslog e_sysconfig e_suiteorder e_suite e_shorte164 e_phonecard e_phone e_payhistory e_othermaxid e_motimer e_moconfig e_mobilearea e_mbx e_language e_ivrservicemenu e_ivrservice e_ivraudiodata e_ivraudio e_ivr e_gifttime e_gatewaysetting e_gateway e_feerategroup e_feeratebytime e_feerate e_customerdetail e_customer e_currentsuite e_currentgifttime e_citycode e_activephonecard e_bindede164 e_cdr > tables.sql
+
+
+
+
+Command file vos3000tablesbackup
+
+Hope it will help you .
+
