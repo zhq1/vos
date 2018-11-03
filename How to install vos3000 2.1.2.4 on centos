@@ -1,0 +1,119 @@
+How to install vos3000 2.1.2.4 on centos
+
+Vos3000 2.1.2.4 can be install on 32 bit or 64 bit Centos Linux.
+Before Installation we will check the following.
+
+1- Check Linux version and Kernel version
+
+#cat /etc/redhat-release
+#uname -m
+
+If Linux kernel version is above 2.6x      VOs3000 2.1.2.4   will not install.
+
+2-  SELINUX     should be disabled              #selinux status
+
+if its is not disabled disable it
+
+#nano /etc/sysconfig/selinux
+
+SELINUX=disabled
+
+3- Check Mysql             # rpm -qa | grep MySQL     or    rpm -qa | grep mysql
+
+If mysql is installed the remove it  and remove the related files
+
+#mv /var/lib/mysql /var/lib/mysql_backup
+#rm -rf /etc/my.cnf
+
+4-  Check perl-DBI       # rpm -qa | grep perl-DBI
+
+If perl-DBI is installed remove it
+
+5-   Flush the iptables and disable it .
+
+#service iptables save |service iptables stop |chkconfig iptables off
+#service ip6tables save |service ip6tables stop |chkconfig ip6tables off
+
+6- make a directory and copy the installation files .
+
+#mkdir  /source
+
+Begin the Vos3000 2.1.2.4  installation 
+
+1- Install the required java
+
+#rpm -ivh jdk-6u19-linux-i586.rpm
+
+2- Copy the Apache Tomcat to the /usr  and untar the file
+
+# cp apache-tomcat-5.5.15.tar.gz  /usr/
+
+#cd /usr
+
+#tar -xvf apache-tomcat-5.5.15.tar.gz
+
+3- Install perl-DBI for install mysql
+
+# rpm -ivh perl-DBI-1.40-5.i386.rpm
+
+4- Install MySQL Server
+
+# rpm -ivh MySQL-server-community-5.0.51a-0.rhel4.i386.rpm
+
+5- Install MySQL Client
+
+# rpm -ivh MySQL-client-community-5.0.51a-0.rhel4.i386.rpm
+
+6- Restart the SQL server  service
+
+# service mysql restart
+
+7- Install emp
+
+# rpm -ivh emp-2.1.2-4.noarch.rpm
+
+8- Install the MBX  service
+
+# rpm -ivh mbx3000-2.1.2-4.i586.rpm
+
+9- Install vos3000 service
+
+# rpm -ivh vos3000-2.1.2-4.i586.rpm
+
+10- Install IVR
+
+# rpm -ivh ivr-2.1.2-4.i586.rpm
+
+11- Make license directory
+
+# mkdir /usr/kunshi/license
+
+12- Generate the information for Licence
+
+IP Address
+MAC Address
+RPM Time
+JDK Time
+
+13 –  Get the license.dat file  upload to server  /usr/kunshi/license/
+
+14 – give the execute permission
+
+# chmod 755 /usr/kunshi/license/license.dat
+
+15-   Restart the all services
+
+#   service mysql restart
+# /etc/init.d/vos3000dall restart
+# /etc/init.d/mbx3000d restart
+# /etc/init.d/ivrd restart
+
+Download the vos3000 2.1.2.4 client  and install on your computer
+
+Default username and password is admin / admin
+
+Note :- you will not be able to login vos3000 client if your licence is not properly installed  even all the services are up and running .
+
+In VOS3000 2.1.1.5  or  VOS3000 2.1.2.0 you can login in vos3000 client even you have  not installed the license but in VOS3000 2.1.2.4 you can not login without proper license installation.
+
+hope this will be informative for vos3000 2.1.2.4 installation .
