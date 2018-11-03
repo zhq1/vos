@@ -1,0 +1,15 @@
+SSH Login Email Alerts
+
+The examples below send an email when someone logs into your server. For this to work, your server must be able to send mail using the mail command.
+
+CentOS
+Open the file   ~/.bash_profile    in a text editor.
+
+Append the following lines:
+
+
+IP="$(echo $SSH_CONNECTION | cut -d " " -f 1)"
+HOSTNAME=$(hostname)
+NOW=$(date +"%e %b %Y, %a %r")
+
+echo 'Someone from '$IP' logged into '$HOSTNAME' on '$NOW'.' | mail -s 'SSH Login Notification' YOUR_EMAIL_ADDRESS
