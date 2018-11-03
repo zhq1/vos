@@ -1,0 +1,18 @@
+How to change VOS3000 admin client port
+
+If you want to change vos3000 client default admin port . you can do it without changing anything on vos3000 server setting you need to just configure the iptables on server.
+
+Below are the iptables command to change port no 7878
+
+
+
+iptables -A PREROUTING -t nat -p tcp -m tcp –dport 1202 -j DNAT –to-destination :3720
+iptables -A PREROUTING -t nat -p tcp -m tcp –dport 7878 -j DNAT –to-destination :1202
+iptables -A PREROUTING -t nat -p tcp -m tcp –dport 1202 -j DNAT –to-destination :3720
+iptables -A PREROUTING -t nat -p tcp -m tcp –dport 7878 -j DNAT –to-destination :1202
+
+
+ 
+Download Command changeport
+
+Now open VOS3000 Admin Client and login with port address 7878
