@@ -1,0 +1,15 @@
+VOS3000 Switch  Firewall rules
+
+If you are running you VOS3000 server behind the firewall then you need to allow the following ports on your firewall.
+
+tcp port:
+vos-client: 1202
+web: 8080
+H323: 1719 1720 3719 3720
+H245: 10000-39999
+
+
+ 
+UDP port:
+SIP：5060, 5070(RC4) and addition you added
+RTP: 10000-39999
