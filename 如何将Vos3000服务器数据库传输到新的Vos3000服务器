@@ -1,0 +1,36 @@
+How to transfer Vos3000 server database  to new  Vos3000 server
+
+VOS 3000 use MySQL database to for their database named  vos3000db
+
+If you want to backup and restore VOS 3000 database or transfer Vos3000 server database to new VOS 3000 server  follow the below steps :-
+
+Login as root on old server
+
+[root@centos]# mysqldump -u root  -p  vos3000db > vos3000backup.sql
+
+Enter password: (enter your MySQL root Password)
+
+Now copy  vos3000backup.sql   file to new server  execute below command to restore
+
+#scp vos3000backup.sql  root@newserverip:/var/
+
+Now Login on New Server
+
+cd /var
+
+[root@centos]# mysqldump -u root  -p  vos3000db  < vos3000backup.sql
+
+Enter password: (enter your MySQL root Password of new server)
+
+if command execute successful then your database is restore.
+
+if you are getting error to restore database try below command
+
+mysql -u root -pxyz  vos3000db <vos3000db.sql
+
+To Backup VOS3000 databse execpt CDR data
+
+Stop vos3000 service ,
+  /bin/tar -jcvf /home/kunshi/vos3000/databackup/vos3000.tar.bz2   –exclude *cdr*    /var/lib/mysql/vos3000/
+
+ 
