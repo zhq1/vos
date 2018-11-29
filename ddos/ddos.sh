@@ -35,6 +35,16 @@ showhelp()
 	echo '-k | --kill: Block the offending ip making more than N connections'
 }
 
+log_msg()
+{
+    if [ ! -e /var/log/ddos.log ]; then
+        touch /var/log/ddos.log
+        chmod 0640 /var/log/ddos.log
+    fi
+
+    echo "$(date +'[%Y-%m-%d %T]') $1" >> /var/log/ddos.log
+}
+
 unbanip()
 {
 	UNBAN_SCRIPT=`mktemp /tmp/unban.XXXXXXXX`
@@ -69,7 +79,7 @@ add_to_cron()
 	sleep 1
 	echo "SHELL=/bin/sh" > $CRON
 	if [ $FREQ -le 2 ]; then
-		echo "0-59/$FREQ * * * * root /usr/local/ddos/ddos.sh >/dev/null 2>&1" >> $CRON
+		echo "0-59/$FREQ * * * * root /usr/local/ddos/ddos.sh >> /var/log/ddos.log 2>&1" >> $CRON
 	else
 		let "START_MINUTE = $RANDOM % ($FREQ - 1)"
 		let "START_MINUTE = $START_MINUTE + 1"
@@ -112,7 +122,7 @@ BANNED_IP_LIST=`$TMP_FILE`
 echo "Banned the following ip addresses on `date`" > $BANNED_IP_MAIL
 echo >>	$BANNED_IP_MAIL
 BAD_IP_LIST=`$TMP_FILE`
-netstat -ntu | awk ‘{print $5}’ | cut -d: -f1 | sed -n ‘/[0-9]/p’ | sort | uniq -c | sort -nr > $BAD_IP_LIST
+netstat -ntu | awk '{print $5}' | cut -d: -f1 | sed -n '/[0-9]/p' | sort | uniq -c | sort -nr > $BAD_IP_LIST
 cat $BAD_IP_LIST
 if [ $KILL -eq 1 ]; then
 	IP_BAN_NOW=0
