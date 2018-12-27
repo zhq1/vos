@@ -6,6 +6,11 @@ wget https://1nth.oss-cn-beijing.aliyuncs.com/vos30002140.bin --no-check-certifi
 chmod 777 vos30002140.bin
 ./vos30002140.bin
 
+#解决web超时问题
+rpm -ivh emp*.rpm --force --nodeps --nomd5
+#解决web超时问题
+su - kunshi -c "cd /home/kunshi/vos3000/webserver/bin;/home/kunshi/vos3000/webserver/bin/vos3000webserver -x 1500 -r /home/kunshi/.run/vos3000webserver.pid > /dev/null 2>&1"
+
 #检查端口是否开放
 echo "" > /dev/tcp/192.168.2.250/2777
 #递归查询/opt/war下面的文件包含api字符的列表
