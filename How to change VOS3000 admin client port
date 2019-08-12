@@ -7,9 +7,9 @@ Below are the iptables command to change port no 7878
 
 
 iptables -A PREROUTING -t nat -p tcp -m tcp –dport 1202 -j DNAT –to-destination :3720
-iptables -A PREROUTING -t nat -p tcp -m tcp –dport 7878 -j DNAT –to-destination :1202
+iptables -A PREROUTING -t nat -p tcp -m tcp –dport 16500 -j DNAT –to-destination :1202
 iptables -A PREROUTING -t nat -p tcp -m tcp –dport 1202 -j DNAT –to-destination :3720
-iptables -A PREROUTING -t nat -p tcp -m tcp –dport 7878 -j DNAT –to-destination :1202
+iptables -A PREROUTING -t nat -p tcp -m tcp –dport 16500 -j DNAT –to-destination :1202
 
 
  
